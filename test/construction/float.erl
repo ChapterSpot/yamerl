@@ -69,7 +69,7 @@ schema_failsafe_float_simple_test_() ->
         ?_assertMatch(
           [
             [
-              0.0, 0.0, 0.0,
+              0.0, 0.0, -0.0,
               123.0, 123.0, -123.0,
               12.34, 12.34, -12.34,
               1.2e+11, 1.2e+11, -1.2e+11,
@@ -97,7 +97,7 @@ schema_failsafe_float_ext_simple_test_() ->
         ?_assertMatch(
           [
             [
-              0.0, 0.0, 0.0,
+              0.0, 0.0, -0.0,
               "123", "+123", "-123",
               12.34, 12.34, -12.34,
               "12e10", "+12e10", "-12e10",
@@ -420,7 +420,7 @@ schema_failsafe_float_detailed_test_() ->
                     0.0},
                   {yamerl_float,yamerl_node_float,"tag:yaml.org,2002:float",
                     [{line,3},{column,3}],
-                    0.0},
+                    -0.0},
                   {yamerl_float,yamerl_node_float,"tag:yaml.org,2002:float",
                     [{line,5},{column,4}],
                     123.0},
@@ -557,7 +557,7 @@ schema_failsafe_float_ext_detailed_test_() ->
                   {yamerl_float,yamerl_node_float_ext,
                     "tag:yaml.org,2002:float",
                     [{line,3},{column,3}],
-                    0.0},
+                    -0.0},
                   {yamerl_str,yamerl_node_str,"tag:yaml.org,2002:str",
                     [{line,5},{column,4}],
                     "123"},
