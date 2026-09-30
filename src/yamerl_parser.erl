@@ -4060,6 +4060,10 @@ handle_anchor_property(
   #yamerl_parser{last_anchor = Anchor} = Parser, Token) when
   (is_record(Token, yamerl_collection_start) andalso
    Anchor#yamerl_anchor.line < Token#yamerl_collection_start.line) orelse
+  (is_record(Token, yamerl_collection_start) andalso
+   Token#yamerl_collection_start.style =:= flow andalso
+   Anchor#yamerl_anchor.line == Token#yamerl_collection_start.line andalso
+   Anchor#yamerl_anchor.column =< Token#yamerl_collection_start.column) orelse
   (is_record(Token, yamerl_scalar) andalso
    (Anchor#yamerl_anchor.line < Token#yamerl_scalar.line orelse
     (Anchor#yamerl_anchor.line == Token#yamerl_scalar.line andalso
